@@ -1,0 +1,25 @@
+Sir Andrew Ng		
+    Multiple Features
+
+
+Features names  : Xsubj,  jth feature .
+n  : Number  of rows
+Feature of  ith  training example : X<sub>2</sub>
+for second example
+it is represent as second row vector
+x^2 = [3,77,1345,9879]
+
+Now model
+f = w1x1 + w2x2 + w3x3 +w4x4 + b
+f = 0.1X^1 = 4X^2 +10X^3+ -2X^4 + 80
+For each sq foot price inc by 0.1 per
+for each bedroom price inc by 4 per
+for each floor price inc by 10 per
+for each year price dec by 2 per
+
+Hence for general 
+f = w(vec).x(vec) + b
+After dot pro w1x1 + 2x2 + w3x3  + .....wnxn
+this is called multiple linear regression or multivariate regression.
+
+    Vactorization

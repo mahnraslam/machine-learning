@@ -1,0 +1,75 @@
+Overview
+The compute_gradient function computes the gradients of the cost function with respect to the model parameters w (weight) and b (bias) for a linear regression model. These gradients are used in optimization algorithms to update the parameters during training.
+
+Linear Regression Model
+In a simple linear regression model, the prediction for a given input feature 
+𝑥
+x is given by: 
+f (x)=w⋅x+b
+
+where:
+
+𝑤
+w is the weight of the model.
+𝑏
+b is the bias of the model.
+The cost function (Mean Squared Error) measures the error between the predicted values and the actual values. To minimize this cost function, we need to calculate the gradients of the cost function with respect to w and b.
+
+ 
+ 
+def compute_gradient(x, y, w, b):
+The function compute_gradient is defined with parameters:
+
+x: Input features.
+y: True output values.
+w: Weight parameter.
+b: Bias parameter.
+Initialize Gradients
+python
+    m = len(x)
+    dj_dw = 0
+    dj_db = 0
+m: Number of training examples.
+dj_dw: Gradient of the cost function with respect to the weight w.
+dj_db: Gradient of the cost function with respect to the bias b.
+Loop Through Each Training Example
+python
+ 
+    for i in range(m):
+The function loops through each training example to compute the gradients.
+
+Calculate Prediction
+python
+ 
+        f_wb_i = w * x[i] + b
+f_wb_i: Prediction for the i-th training example, computed using the current parameters w and b.
+Compute Error and Gradients for Each Example
+python
+ 
+        dj_dw_i = f_wb_i - y[i]
+        dj_db_i = (f_wb_i - y[i]) * x[i]
+        dj_dw += dj_dw_i
+        dj_db += dj_db_i
+dj_dw_i: Error for the i-th example, which is the difference between the predicted value f_wb_i and the actual value y[i].
+dj_db_i: Partial derivative of the cost function with respect to the bias b for the i-th example. It is computed as (f_wb_i - y[i]) * x[i].
+dj_dw: Accumulate the gradient of the cost function with respect to the weight w by adding dj_dw_i for each example.
+dj_db: Accumulate the gradient of the cost function with respect to the bias b by adding dj_db_i for each example.
+Average the Gradients
+python
+ 
+    dj_db = 1 / m * dj_db
+    dj_dw = 1 / m * dj_dw
+dj_db: The accumulated gradient with respect to the bias is averaged by dividing by the number of training examples m.
+dj_dw: The accumulated gradient with respect to the weight is also averaged by dividing by m.
+Return Gradients
+python
+ 
+    return dj_dw, dj_db
+The function returns the average gradients dj_dw and dj_db. These gradients are used to update the parameters w and b during the optimization process (e.g., using gradient descent).
+
+Summary
+Prediction: The model’s output based on current parameters.
+Error: The difference between prediction and actual value.
+Gradient Calculation: Measures how much the cost function would change with a small change in parameters.
+Averaging: Gradients are averaged over all examples to provide a stable estimate.
+The computed gradients are crucial for optimization algorithms, as they guide the adjustment of parameters to minimize the cost function and improve the model's performance.

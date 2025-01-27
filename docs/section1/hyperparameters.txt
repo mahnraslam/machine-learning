@@ -1,0 +1,18 @@
+`                                               ***Cost Function***
+It describes how well well the model prediction matches the actual data .
+For linear reression we use MSE 
+Formula 
+        J(w,b)= 1 / 2m  ∑(i=1 to m) ((wx+b) - y) ^2
+       for 1 example  w = 1/2m ∑(i=1 to m) ((wx+b) - y) ^2 * x
+        b = 1/2m ∑(i=1 to m) ((wx+b) - y) ^2
+Subtact by 2m or m in gradient ;
+        m refers general function and applies to broder range cost function
+        2m is use in linear regression as  to simplify the Gradient
+
+==============================
+**Gradient  of the cost function **
+    It tells how to change  w and b to reduce the cost.
+    #Computing gradient in each iteration ensure that updates are based on the recent value.
+
+    Accurate parameter updates  ;
+        w = w - learning rate * dj_dw
