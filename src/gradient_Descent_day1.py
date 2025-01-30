@@ -62,8 +62,8 @@ def compute_gradient(x, y, w, b) :
  
 # Example data
 df = pd.read_csv("student_scores.csv")
-x =  df['Hours']
-y = df['Scores'] 
+x = np.array(df['Hours'])
+y = np.array(df['Scores'])
 w = 0
 b = 0
 
@@ -80,7 +80,7 @@ for i in range(20):
     grad_w.append(dj_dw)
     grad_b.append(dj_db)
     
-    cost.append(calculate(x,y,dj_dw,dj_db))
+    cost.append(calculateCost(x,y,dj_dw,dj_db))
     
      
     w -= learning_rate * dj_dw
